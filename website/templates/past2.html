@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h4 style="color: white;">Past Images</h4>
+
+    {% if images %}
+        <ul>
+            {% for image in images %}
+                <li>
+                    <img src="{{ image.ai_image.url }}" alt="{{ image.phrase }}">
+                    <br>
+                    <a href="{% url 'delete_past2' image.id %}" class='btn btn-outline-secondary btn-sm' >Delete</a>
+                </li>
+
+                <br/><br/>
+            {% endfor %}
+           
+        </ul>
+       
+    {% else %}
+        <p>No past images available.</p>
+    {% endif %}
+{% endblock content %}

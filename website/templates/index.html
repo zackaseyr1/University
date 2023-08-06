@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if object %}
+    <div>
+        {{ object.phrase }}
+        <br>
+        <img src="{{ object.ai_image.url }}" alt="{{ object.phrase }}" style="color: white;">
+
+
+    </div>
+{% endif %}
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<h3  style='color: white;'>Image Description</h3>
+
+<form method="post" autocomplete="off">
+    {% csrf_token %}
+    <input type="text" class="form-control" name="user_input">
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
+
+
+
+{% endblock content %}
